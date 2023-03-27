@@ -7,7 +7,16 @@ playlist_display_mode = "classic"
 # - $/r stops color-reversing at that point for currently-selected item.
 # - |{%f} falls back to displaying file-name if tags are not found.
 # More info: https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config#L124
+user_interface = "alternative"
+colors_enabled = "yes"
+
 song_list_format = "$6{%a »$4 %t$/r$R}|{%f}"
+mpd_music_dir = "~/Music"
+
+progressbar_look = "  "
+connected_message_on_startup = no
+
+autocenter_mode = "yes"
 
 # Alternative with only song length right-aligned
 # song_list_format = "$6{%a »$4 %t $R$l}|{%f}"

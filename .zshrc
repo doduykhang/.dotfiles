@@ -12,3 +12,5 @@ if [ -f '/home/khang/google-cloud-sdk/path.zsh.inc' ]; then . '/home/khang/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/khang/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/khang/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias cava="TERM=xterm-256color cava"
