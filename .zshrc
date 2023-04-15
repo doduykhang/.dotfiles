@@ -3,7 +3,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00ffd2,bg=#0a0047,bold"
 pokemon-colorscripts --random
+
+#PATH
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/go/bin
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 

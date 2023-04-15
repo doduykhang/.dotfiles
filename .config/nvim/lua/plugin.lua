@@ -23,29 +23,11 @@ return require("packer").startup(function (use)
         'vim-airline/vim-airline-themes'
   }
   -- Packer
-   use{
-        "folke/noice.nvim",
+        use{
+                "folke/noice.nvim",
         }
-use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} }
-}
-use {
-  "vigoux/notifier.nvim",
-  config = function()
-    require'notifier'.setup {
-    }
-  end
-}
-use {
-  "someone-stole-my-name/yaml-companion.nvim",
-  requires = {
-      { "neovim/nvim-lspconfig" },
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
-  },
-  config = function()
-    require("telescope").load_extension("yaml_schema")
-  end,
-}
+        use {
+                'nvim-telescope/telescope.nvim', tag = '0.1.1',
+                requires = { {'nvim-lua/plenary.nvim'} }
+        }
 end)

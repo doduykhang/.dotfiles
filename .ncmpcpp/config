@@ -17,6 +17,7 @@ progressbar_look = "  "
 connected_message_on_startup = no
 
 autocenter_mode = "yes"
+seek_time = 10
 
 # Alternative with only song length right-aligned
 # song_list_format = "$6{%a »$4 %t $R$l}|{%f}"
