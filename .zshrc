@@ -7,6 +7,9 @@ pokemon-colorscripts --random
 #PATH
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/$USER/go/bin
+export PATH=$PATH:/home/$USER/bin
+
 export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
@@ -17,3 +20,4 @@ if [ -f '/home/khang/google-cloud-sdk/path.zsh.inc' ]; then . '/home/khang/googl
 if [ -f '/home/khang/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/khang/google-cloud-sdk/completion.zsh.inc'; fi
 
 alias cava="TERM=xterm-256color cava"
+source /usr/share/nvm/init-nvm.sh

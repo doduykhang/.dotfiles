@@ -19,8 +19,8 @@ padding_left=
 # Only set this if the geometries are wrong or ncmpcpp shouts at you to do it.
 # Visually select/highlight a character on your terminal, zoom in an image 
 # editor and count how many pixels a character's width and height are.
-font_height=130
-font_width=60
+font_height=
+font_width=
 
 main() {
     kill_previous_instances >/dev/null 2>&1
@@ -75,6 +75,9 @@ find_cover_image() {
 
 display_cover_image() {
     compute_geometry
+
+    #kitty icat --place "$ueber_width"x"$ueber_height"@"$x"x"$y" $cover_path
+
 
     send_to_ueberzug \
         action "add" \

@@ -32,12 +32,14 @@ import subprocess
 from libqtile import hook
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 @hook.subscribe.startup_once
 def autostart():
     processes = [
         ['/usr/bin/setxkbmap', '-option', 'caps:swapescape'],
+        ['variety'],
+        ['picom'],
     ]
 
     for p in processes:
@@ -154,7 +156,7 @@ screens = [
                     fontsize=fontsize,
                     padding_x=10,    
                     highlight_method='line',
-                    highlight_color=['000000'],
+                    highlight_color=["#292d3e", "#292d3e"],
                     this_current_screen_border="FF679A"
                 ),
                 widget.Spacer(),
@@ -216,7 +218,8 @@ screens = [
             ],
             45,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            background= ["#292d3e", "#292d3e"],
+            border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
         wallpaper='~/wallpapers/kohane_2d_ani.webp',
         wallpaper_mode='stretch',

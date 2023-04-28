@@ -22,10 +22,6 @@ return require("packer").startup(function (use)
         'vim-airline/vim-airline',
         'vim-airline/vim-airline-themes'
   }
-  -- Packer
-        use{
-                "folke/noice.nvim",
-        }
         use {
                 'nvim-telescope/telescope.nvim', tag = '0.1.1',
                 requires = { {'nvim-lua/plenary.nvim'} }

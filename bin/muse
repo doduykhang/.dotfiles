@@ -1,0 +1,15 @@
+#!/bin/bash
+
+kitty @ goto-layout splits
+
+#kitty @ resize-window -i 30 -a horizontal
+
+kitty @ launch --title "cava" --location=hsplit --dont-take-focus cava
+
+kitty @ launch --title "cover" --location=vsplit --dont-take-focus zsh
+
+kitty @ resize-window --match "title:^cava" -i -3 -a vertical
+
+kitty @ resize-window --match "title:^cover" -i -30 -a horizontal
+
+ncmpcpp
