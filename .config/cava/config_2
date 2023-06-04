@@ -218,6 +218,6 @@
 # You can define as many as 8 different colors. They range from bottom to top of screen
 gradient = 1
 gradient_count = 2
-gradient_color_1 = "#b35375"
-gradient_color_2 = "#332a3d"
-gradient_color_3 = "#f0d5da"
+gradient_color_1 = "#e2cecd"
+gradient_color_2 = "#4a394c"
+gradient_color_3 = "#ae4167"
