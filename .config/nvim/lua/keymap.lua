@@ -24,3 +24,5 @@ keymap("n", "<C-y>", '"+y', opts)
 
 keymap("v", "<C-p>", '"+p', opts)
 keymap("n", "<C-p>", '"+p', opts)
+keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
+
