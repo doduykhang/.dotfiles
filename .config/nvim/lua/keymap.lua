@@ -15,3 +15,12 @@ vim.keymap.set('n', '<leader>ft', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- vim.api.nvim_set_keymap("n", "<c-c>", '"*y :let @+=@*<CR>', {noremap=true, silent=true})
+
+--copy to clipboard
+keymap("v", "<C-y>", '"+y', opts)
+keymap("n", "<C-y>", '"+y', opts)
+
+keymap("v", "<C-p>", '"+p', opts)
+keymap("n", "<C-p>", '"+p', opts)

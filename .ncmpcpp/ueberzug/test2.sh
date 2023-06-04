@@ -1,7 +1,7 @@
 #!/bin/sh
 
 music_library="$HOME/Music"
-fallback_image="$HOME/.ncmpcpp/ncmpcpp-ueberzug/img/fallback.png"
+fallback_image="$HOME/.ncmpcpp/fallback.png"
 
 find_cover_image() {
 
@@ -36,9 +36,22 @@ find_cover_image() {
     fi
 }
 
+update_cava() {
+        cava_config=/home/khang/.config/cava/config_2
+        palette=$(get_color_pallet $1 | awk '{ printf "gradient_color_%s = \"%s\"\n", NR, $1 }')
+        echo "$(head -n -3 /home/khang/.config/cava/config_2)" > /home/khang/.config/cava/config_2
+        echo "$palette" >> /home/khang/.config/cava/config_2
+        kitty @ send-text --match 'title:^cava' "r \r"
+}
+
+
 main () {
         find_cover_image >/dev/null 2>&1
-        kitty @ send-text --match 'title:^cover' "kitten icat --clear --place 46x46@0x0 $cover_path\r"
+        kitty @ send-text --match 'title:^cover' "kitten icat --clear --place 57x57@0x0 $cover_path\r"
+        # dominant_color=$(dominant_color_extractor $cover_path)
+        # kitty @ set-colors color5=$dominant_color
+        update_cava $cover_path
+        notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i $cover_path -u low
 }
 
 main

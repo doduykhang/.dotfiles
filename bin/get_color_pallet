@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+from colorthief import ColorThief
+import sys
+
+def get_color_palette(path, count = 2):
+    color_thief = ColorThief(path)
+    palette = color_thief.get_palette(color_count=count)
+    return palette
+
+if len(sys.argv) < 2:
+    print("Usage: " + sys.argv[0] + " image")
+    exit()
+
+color_palette = get_color_palette(sys.argv[1])
+
+def rgb_to_hex(r, g, b):
+    return '#{:02x}{:02x}{:02x}'.format(r, g, b)
+
+for color in color_palette:
+    print(rgb_to_hex(color[0], color[1], color[2]))

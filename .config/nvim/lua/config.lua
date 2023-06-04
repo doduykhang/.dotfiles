@@ -6,3 +6,4 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn= 'yes:1'
 vim.o.termguicolors = true
 vim.g.airline_theme = "tomorrow"
+vim.opt.clipboard = 'unnamedplus'

@@ -46,7 +46,7 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 12
+  size: 15
 
 env:
   TERM: xterm-256color

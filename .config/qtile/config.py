@@ -25,10 +25,11 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import subprocess
+import os
 from libqtile import hook
 
 mod = "mod4"
@@ -38,10 +39,12 @@ terminal = "kitty"
 def autostart():
     processes = [
         ['/usr/bin/setxkbmap', '-option', 'caps:swapescape'],
-        ['variety'],
         ['picom'],
+        ['mpd'],
+        ['fcitx5'],
     ]
-
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/wallpaper.sh'])
     for p in processes:
         subprocess.Popen(p)
 
@@ -86,6 +89,12 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "o", lazy.spawn("rofi -show drun"), desc="Spawn rofi"),
     Key([mod], "m", lazy.spawn("mpc toggle"), desc="Grow window up"),
+    KeyChord([mod], "w", [
+        Key([], "x", lazy.spawn("warpd --normal")),
+        Key([], "h", lazy.spawn("warpd --hint")),
+        Key([], "g", lazy.spawn("warpd --grid"))
+    ]),
+    Key([mod], "p", lazy.spawn("flameshot gui"), desc="Take screen shot"),
 ]
 
 
@@ -174,7 +183,9 @@ screens = [
                 widget.Mpd2(
                     fontsize=fontsize, 
                     foreground=["#FF679A", "#FFCDAC"],
-                    status_format='{artist} - {title}'
+                    status_format='{artist} - {title}',
+                    idle_format="",
+                    idle_message=""
                 ),
                 widget.Spacer(),
                 widget.Systray(icon_size=25),
@@ -221,8 +232,6 @@ screens = [
             background= ["#292d3e", "#292d3e"],
             border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        wallpaper='~/wallpapers/kohane_2d_ani.webp',
-        wallpaper_mode='stretch',
     ),
 ]
 

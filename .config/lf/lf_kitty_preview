@@ -7,6 +7,12 @@ y=$5
 
 filetype="$( file -Lb --mime-type "$file")"
 
+
+if [[ "$filetype" =~ ^text ]]; then
+        bat --color always "$file"
+    exit 1
+fi
+
 if [[ "$filetype" =~ ^image ]]; then
     kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
     exit 1
@@ -20,4 +26,4 @@ if [[ "$filetype" =~ ^video ]]; then
 fi
 
 
-pistol "$file"
+bat "$file"
