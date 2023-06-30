@@ -22,6 +22,7 @@ cmd bulk-rename ${{
 
 map au unarchive
 map e $nvim "$f"
+map w $feh --bg-scale "$f"
 
 map gd cd ~/Downloads
 map gm cd ~/Musics

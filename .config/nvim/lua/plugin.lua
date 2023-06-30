@@ -34,4 +34,7 @@ return require("packer").startup(function (use)
                 'nvim-telescope/telescope.nvim', tag = '0.1.1',
                 requires = { {'nvim-lua/plenary.nvim'} }
         }
+        use {'edluffy/hologram.nvim'}
+        use { 'christoomey/vim-tmux-navigator' }
+        use 'ray-x/go.nvim'
 end)

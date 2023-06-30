@@ -1,2 +1,7 @@
 scroll_up: u
 scroll_down: d
+up: Up
+down: Down
+left: Left
+right: Right
+

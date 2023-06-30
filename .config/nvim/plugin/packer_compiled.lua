@@ -94,6 +94,16 @@ _G.packer_plugins = {
     path = "/home/khang/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["hologram.nvim"] = {
+    loaded = true,
+    path = "/home/khang/.local/share/nvim/site/pack/packer/start/hologram.nvim",
+    url = "https://github.com/edluffy/hologram.nvim"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/khang/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/khang/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
