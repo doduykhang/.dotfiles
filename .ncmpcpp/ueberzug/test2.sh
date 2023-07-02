@@ -47,11 +47,11 @@ update_cava() {
 
 main () {
         find_cover_image >/dev/null 2>&1
-        kitty @ send-text --match 'title:^cover' "kitten icat --clear --place 57x57@0x0 $cover_path\r"
+        kitty @ send-text --match 'title:^cover' "kitten icat --clear --place 57x57@0x0 '$cover_path'\r"
         # dominant_color=$(dominant_color_extractor $cover_path)
         # kitty @ set-colors color5=$dominant_color
-        update_cava $cover_path
-        notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i $cover_path -u low
+        # update_cava $cover_path
+        # notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i $cover_path -u low
 }
 
 main

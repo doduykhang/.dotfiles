@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 kitty @ goto-layout splits
 

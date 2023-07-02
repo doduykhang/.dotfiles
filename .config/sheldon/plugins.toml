@@ -1,0 +1,9 @@
+
+[plugins.base16]
+github = 'chriskempson/base16-shell'
+
+[plugins.autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+
+[plugins.syntax-hightlighting]
+github = 'zsh-users/zsh-syntax-highlighting'
