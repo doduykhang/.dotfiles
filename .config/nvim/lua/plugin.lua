@@ -50,6 +50,13 @@ return require("packer").startup(function (use)
         use {'edluffy/hologram.nvim'}
         use { 'christoomey/vim-tmux-navigator' }
         use 'ray-x/go.nvim'
+
+        use 'mfussenegger/nvim-dap'
+        use 'rcarriga/nvim-dap-ui'
+        use 'theHamsta/nvim-dap-virtual-text'
+        use 'jay-babu/mason-nvim-dap.nvim'
+        use "mxsdev/nvim-dap-vscode-js"
+
         if packer_bootstrap then
     		require('packer').sync()
   	end

@@ -26,3 +26,14 @@ keymap("v", "<C-p>", '"+p', opts)
 keymap("n", "<C-p>", '"+p', opts)
 keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
 
+-- debugger
+keymap("n", "<leader>du", ":lua require('dapui').toggle()<CR>", opts)
+keymap("n", "<leader>dc", ":lua require('dap').continue()<CR>", opts)
+keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
+keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", opts)
+keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opts)
+keymap("n", "<leader>b", ":lua require('dap').toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>B", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+--nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+--nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+--nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>

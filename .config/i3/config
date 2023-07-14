@@ -31,7 +31,7 @@ exec_always --no-startup-id feh --bg-scale ~/wallpapers/an_wedding_pre.png
 # STARTUP
 exec --no-startup-id mpd
 exec --no-startup-id fcitx5
-exec --no-startup-id picom
+# exec --no-startup-id picom
 exec_always --no-startup-id setxkbmap -option "caps:swapescape"
 # polybar
 exec_always ~/.config/polybar/launch.sh &

@@ -22,6 +22,11 @@ require'lspconfig'.gopls.setup{
 	capabilities = capabilities
 }
 
+require'lspconfig'.nil_ls.setup{
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+
 require'lspconfig'.tsserver.setup{
 	on_attach = on_attach,
 	capabilities = capabilities

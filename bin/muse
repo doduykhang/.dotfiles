@@ -4,7 +4,7 @@ kitty @ goto-layout splits
 
 #kitty @ resize-window -i 30 -a horizontal
 
-kitty @ launch --title "cava" --location=hsplit --dont-take-focus cava -p /home/khang/.config/cava/config_2 
+kitty @ launch --title "cava" --location=hsplit --dont-take-focus cava 
 
 kitty @ launch --title "cover" --location=vsplit --dont-take-focus zsh
 

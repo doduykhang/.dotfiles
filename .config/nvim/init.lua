@@ -1,3 +1,4 @@
+require("debugger")
 require("plugin")
 require("colorschema")
 require("lsp")
