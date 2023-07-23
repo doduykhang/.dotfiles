@@ -9,6 +9,7 @@ export PATH=$PATH:/home/$USER/go/bin
 export PATH=$PATH:/home/$USER/bin
 export PATH=$PATH:/home/$USER/.tmuxifier/bin
 
+export MYVIMRC=/home/$USER/.config/nvim/init.lua
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/khang/google-cloud-sdk/path.zsh.inc' ]; then . '/home/khang/google-cloud-sdk/path.zsh.inc'; fi

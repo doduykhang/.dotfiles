@@ -1,6 +1,10 @@
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
-require("mason-nvim-dap").setup()
+
+require("mason-nvim-dap").setup({
+    ensure_installed = { "js-debug-adapter" },
+    automatic_installation = true
+})
 
 require("dap-vscode-js").setup({
   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },

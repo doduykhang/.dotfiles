@@ -13,23 +13,15 @@ let
     exec -a "$0" "$@"
   '';
 
-  hyprland-wrapper = pkgs.writeShellScriptBin "hyprland-wrapper" ''
-    export LIBVA_DRIVER_NAME=nvidia
-    export XDG_SESSION_TYPE=wayland
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export WLR_NO_HARDWARE_CURSORS=1
-    exec -a "$0" "$@"
-  '';
-
-  Xsetup = pkgs.writeShellScript "Xsetup" ''
-    xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
-  '';
 in
 
 {
   #---JAVA-----
   programs.java.enable = true;
+
+  #swaylock
   security.pam.services.swaylock = {};
+  #keyring
   services.gnome.gnome-keyring.enable = true;
   #----DOCKER----------------
   virtualisation.docker.enable = true;
@@ -86,7 +78,7 @@ in
     amdgpuBusId = "PCI:6:0:0";
   };
 
-  security.pam.services.sddm.enableKwallet = true;
+  # security.pam.services.sddm.enableKwallet = true;
 
   specialisation = {
     external-display.configuration = {
@@ -115,6 +107,22 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  elisa
+  gwenview
+  okular
+  oxygen
+  khelpcenter
+  konsole
+  plasma-browser-integration
+  print-manager
+  kwallet
+  kwallet-pam
+  kwalletmanager
+   xdg-desktop-portal-kde
+];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -165,6 +173,8 @@ in
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+
   services.xserver.displayManager.setupCommands = ''
     xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
   '';
@@ -193,6 +203,7 @@ in
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -250,6 +261,7 @@ in
    neovim
    lazygit
    i3
+   gnumake
    git
    kitty
    tmux
@@ -264,6 +276,7 @@ in
    python3
    rustc
    cargo
+   ruby
    variety
    pokemon-colorscripts-mac   
    feh
@@ -282,6 +295,7 @@ in
    ffmpeg
    mpc-cli
    awscli2
+   azure-cli
    google-cloud-sdk
    mysql-workbench
    mongodb-compass
@@ -301,8 +315,31 @@ in
    swayidle
    killall
    deluged
+   pipewire
+   wireplumber
+   xdg-desktop-portal-hyprland
    unrar
+   docker-compose
+   ripgrep
    unzip
+    # support both 32- and 64-bit applications
+    wineWowPackages.stable
+
+    # support 32-bit only
+    wine
+
+    # support 64-bit only
+    (wine.override { wineBuild = "wine64"; })
+
+    # wine-staging (version with experimental features)
+    wineWowPackages.staging
+
+    # winetricks (all versions)
+    winetricks
+
+    # native wayland support (unstable)
+    wineWowPackages.waylandFull
+    warpd
    (lutris.override {
        extraPkgs = pkgs: [
          wineWowPackages.stable

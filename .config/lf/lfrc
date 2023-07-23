@@ -21,6 +21,7 @@ cmd bulk-rename ${{
 }}
 
 map au unarchive
+map ae $wine "$f"
 map e $nvim "$f"
 map w $feh --bg-scale "$f"
 map sw $swww img "$f"

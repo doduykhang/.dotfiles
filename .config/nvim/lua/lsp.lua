@@ -1,6 +1,8 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "gopls", "tsserver", "vuels", "yamlls", "ruby_ls" }
+	ensure_installed = { 
+          "lua_ls", "gopls", "tsserver", "vuels", "yamlls", "ruby_ls", "jsonls", "solargraph"
+  }
 })
 
 local on_attach = function()
@@ -13,6 +15,11 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 
 require("lspconfig").lua_ls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+
+require("lspconfig").jsonls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
@@ -34,7 +41,7 @@ require'lspconfig'.tsserver.setup{
 
 require'lspconfig'.vuels.setup{
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilddddities
 }
 
 require'lspconfig'.solargraph.setup{

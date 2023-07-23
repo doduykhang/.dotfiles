@@ -6,5 +6,6 @@ require("completions")
 require("config")
 require("plugin_config")
 require("keymap")
+require("neotest_config")
 
 --require("noice-config")
