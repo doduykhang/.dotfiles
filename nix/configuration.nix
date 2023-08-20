@@ -16,13 +16,16 @@ let
 in
 
 {
+services.logind.lidSwitch = "ignore";
+    services.logind.extraConfig = "HandleLidSwitch=ignore";
+
   #---JAVA-----
   programs.java.enable = true;
 
+
   #swaylock
   security.pam.services.swaylock = {};
-  #keyring
-  services.gnome.gnome-keyring.enable = true;
+  #keyrin.gnome.gnome-keyring.enable = true;
   #----DOCKER----------------
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "khang" ];
@@ -108,22 +111,6 @@ in
       ./hardware-configuration.nix
     ];
 
-environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-  elisa
-  gwenview
-  okular
-  oxygen
-  khelpcenter
-  konsole
-  plasma-browser-integration
-  print-manager
-  kwallet
-  kwallet-pam
-  kwalletmanager
-   xdg-desktop-portal-kde
-];
-
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -172,8 +159,9 @@ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
 
   services.xserver.displayManager.setupCommands = ''
     xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
@@ -191,6 +179,11 @@ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     xkbVariant = "";
   };
 
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    xdg-desktop-portal-kde
+    ];
+
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -198,6 +191,7 @@ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = false;
     alsa.enable = true;
@@ -252,6 +246,9 @@ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+  pkgs.nodePackages."@nestjs/cli"
+  pkgs.nodePackages."ts-node"
+   shotman
    chromium
    lsof
    arandr
@@ -322,6 +319,7 @@ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
    docker-compose
    ripgrep
    unzip
+   libreoffice-qt
     # support both 32- and 64-bit applications
     wineWowPackages.stable
 
