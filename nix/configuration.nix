@@ -12,15 +12,23 @@ let
     export __VK_LAYER_NV_optimus=NVIDIA_only
     exec -a "$0" "$@"
   '';
+  androidSdk = pkgs.androidenv.androidPkgs_9_0.androidsdk;
 
 in
 
 {
-services.logind.lidSwitch = "ignore";
-    services.logind.extraConfig = "HandleLidSwitch=ignore";
+
+    services.logind.lidSwitch = "ignore";
+     networking.firewall.allowedTCPPortRanges = [ { from = 1000; to = 10000; } ];
+  networking.firewall.allowedUDPPortRanges = [ { from = 1000; to = 10000; } ];
+  services.udev.extraRules = ''
+    ACTION=="add", ATTRS{idVendor}=="062a", ATTRS{idProduct}=="4106", ATTR{power/wakeup}="enabled"
+  '';
 
   #---JAVA-----
   programs.java.enable = true;
+  programs.adb.enable = true;
+  #android_sdk.accept_license = true;
 
 
   #swaylock
@@ -197,7 +205,6 @@ services.logind.lidSwitch = "ignore";
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -222,7 +229,7 @@ services.logind.lidSwitch = "ignore";
   users.users.khang = {
     isNormalUser = true;
     description = "khang";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "adbusers" ];
     packages = with pkgs; [
       firefox
       kate
@@ -248,6 +255,9 @@ services.logind.lidSwitch = "ignore";
   #  wget
   pkgs.nodePackages."@nestjs/cli"
   pkgs.nodePackages."ts-node"
+  pkgs.nodePackages."firebase-tools"
+    android-studio
+    flutter
    shotman
    chromium
    lsof
@@ -255,6 +265,7 @@ services.logind.lidSwitch = "ignore";
    nvidia-offload
    vim
    insomnia
+   scrcpy
    neovim
    lazygit
    i3
@@ -285,6 +296,7 @@ services.logind.lidSwitch = "ignore";
     pulseSupport = true;
    })
    flameshot
+   htop
    bluetuith 
    mpd
    ncmpcpp
