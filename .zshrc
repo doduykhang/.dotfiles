@@ -8,6 +8,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/$USER/go/bin
 export PATH=$PATH:/home/$USER/bin
 export PATH=$PATH:/home/$USER/.tmuxifier/bin
+export PATH=$PATH:/home/khang/Android/Sdk/platform-tools/
+export PATH=$PATH:/home/khang/Android/Sdk/tools
 
 export MYVIMRC=/home/$USER/.config/nvim/init.lua
 
