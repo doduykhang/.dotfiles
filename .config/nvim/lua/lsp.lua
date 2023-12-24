@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = { 
-          "lua_ls", "gopls", "tsserver", "vuels", "yamlls", "ruby_ls", "jsonls", "solargraph"
+          "lua_ls", "gopls", "tsserver", "vuels", "yamlls", "jsonls",
   }
 })
 
@@ -42,11 +42,6 @@ require'lspconfig'.tsserver.setup{
 require'lspconfig'.vuels.setup{
 	on_attach = on_attach,
 	capabilities = capabilddddities
-}
-
-require'lspconfig'.solargraph.setup{
-	on_attach = on_attach,
-	capabilities = capabilities
 }
 
 require'lspconfig'.yamlls.setup{

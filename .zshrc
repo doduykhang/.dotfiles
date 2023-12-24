@@ -23,3 +23,4 @@ alias cava="TERM=xterm-256color cava"
 
 eval "$(sheldon source)"
 
+source /usr/share/nvm/init-nvm.sh
